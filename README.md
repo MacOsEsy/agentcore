@@ -38,7 +38,7 @@ Usually, when you use AI for work, you have to constantly remind it of your "hou
 
 - **For Managers**: Ensure your entire team writes high-quality code that follows your company's standards, regardless of which AI tool they use.
 - **For Non-IT Users**: You don't need to know _how_ the rules are written; you just run one command to "upgrade" your AI with professional-grade engineering knowledge.
-- **For Teams**: No more "Hey, why did the AI write it this way?"—everyone’s AI uses the same playbook.
+- **For Teams**: No more "Hey, why did the AI write it this way?"—everyone's AI uses the same playbook.
 
 ---
 
@@ -49,6 +49,8 @@ Modern AI coding agents are powerful, but they struggle when managing project-wi
 1. **Information Overload**: Providing too many instructions at once confuses the AI and makes it forgetful.
 2. **Version Chaos**: Every team member has a different version of "best practices" floating around their local computer.
 3. **Wasted Space**: Long, wordy instructions "eat up" the AI's limited memory (the Context Window), making it more expensive and less effective.
+
+---
 
 ## 🛠 The Solution: Digital DNA for AI
 
@@ -222,6 +224,16 @@ skills:
 - **`custom_overrides`**: A list of skill IDs that the CLI should **never** overwrite.
 - **`ref`**: Specify a specific version or tag for the skills.
 
+### Project-Specific Skills
+
+For project-specific rules that differ from or extend the standard registry skills, create local skills in your agent's skills directory (e.g., `.github/skills/project/` for Copilot). These local skills will not be overwritten during sync operations.
+
+Example:
+
+Create `.github/skills/project/your-project-standards/SKILL.md` with your custom rules.
+
+This approach ensures your project-specific standards are preserved while benefiting from upstream updates.
+
 ---
 
 ## ❓ Troubleshooting
@@ -283,7 +295,7 @@ The standard follows a strict directory structure designed for **Token Economy**
 
 ```text
 skills/
-└── flutter/                        # Category
+└── flutter/                    # Category
     └── bloc-state-management/      # Skill
         ├── SKILL.md                # Core Rules (High Density)
         └── references/             # Heavy Examples (Loaded only on demand)
@@ -299,18 +311,18 @@ The CLI will sync this exact structure effectively to your agent configuration:
 
 ### IDE Mapping
 
-| Agent           | Target Path         | Integration Method                     |
-| :-------------- | :------------------ | :------------------------------------- |
-| **Cursor**      | `.cursor/skills/`   | Automatic discovery via `.cursorrules` |
-| **Trae**        | `.trae/skills/`     | Automatic discovery                    |
-| **Claude Code** | `.claude/skills/`   | Referenced in `CLAUDE.md`              |
-| **Copilot**     | `.github/skills/`   | Automatic discovery                    |
-| **OpenAI**      | `.codex/skills/`    | Automatic discovery                    |
-| **Antigravity** | `.agent/skills/`    | Automatic discovery                    |
-| **Gemini**      | `.gemini/skills/`   | Automatic discovery                    |
-| **Roo Code**    | `.roo/skills/`      | Automatic discovery                    |
-| **Windsurf**    | `.windsurf/skills/` | Automatic discovery                    |
-| **OpenCode**    | `.opencode/skills/` | Automatic discovery                    |
+| Agent          | Target Path         | Integration Method                     |
+| :------------- | :------------------ | :------------------------------------- |
+| **Cursor**     | `.cursor/skills/`   | Automatic discovery via `.cursorrules` |
+| **Trae**       | `.trae/skills/`     | Automatic discovery                    |
+| **Claude Code**| `.claude/skills/`   | Referenced in `CLAUDE.md`             |
+| **Copilot**    | `.github/skills/`   | Automatic discovery                    |
+| **OpenAI**     | `.codex/skills/`    | Automatic discovery                    |
+| **Antigravity**| `.agent/skills/`    | Automatic discovery                    |
+| **Gemini**     | `.gemini/skills/`   | Automatic discovery                    |
+| **Roo Code**   | `.roo/skills/`      | Automatic discovery                    |
+| **Windsurf**   | `.windsurf/skills/` | Automatic discovery                    |
+| **OpenCode**   | `.opencode/skills/` | Automatic discovery                    |
 
 ---
 
@@ -332,6 +344,8 @@ npx /path/to/agent-skills-standard/cli sync
 ```
 
 This is the recommended way to verify that skill injections and discovery bridges (like `.cursorrules`) work correctly in a real project environment.
+
+---
 
 ## 📄 License & Credits
 
