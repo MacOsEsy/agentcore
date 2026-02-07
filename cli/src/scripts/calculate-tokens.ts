@@ -167,7 +167,6 @@ async function main() {
 
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
-      if (!line.includes('|')) continue;
 
       for (const category of categories) {
         // Create a flexible regex: "nextjs" -> /next.*js/i to match "Next.js"
@@ -179,9 +178,15 @@ async function main() {
 
         if (categoryMatch) {
           const metrics = results[category];
+          const version = metadata.categories[category]?.version;
           const cells = line.split('|');
 
           if (cells.length >= 6) {
+            // Update Version (index 3)
+            if (version) {
+              cells[3] = ` \`v${version}\``.padEnd(10);
+            }
+
             // Update Skills (index 4) and Avg. Footprint (index 5)
             // Desired format: | 10     | ~503 tokens    |
             cells[4] = ` ${metrics.totalSkills}`.padEnd(8);
@@ -190,6 +195,21 @@ async function main() {
               .padEnd(16);
 
             lines[i] = cells.join('|');
+            updated = true;
+          }
+        }
+
+        // Update Badges
+        // [![common](https://img.shields.io/badge/common-v1.4.0-blue...
+        const badgeRegex = new RegExp(`^\\[!\\[${category}\\]`);
+        if (badgeRegex.test(line)) {
+          const version = metadata.categories[category]?.version;
+          if (version) {
+            // Update both badge image URL and link URL
+            lines[i] = line.replace(
+              new RegExp(`${category}-v\\d+\\.\\d+\\.\\d+`, 'g'),
+              `${category}-v${version}`,
+            );
             updated = true;
           }
         }

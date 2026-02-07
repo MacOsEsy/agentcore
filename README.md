@@ -3,22 +3,22 @@
 [![NPM Version](https://img.shields.io/npm/v/agent-skills-standard.svg?style=flat-square)](https://www.npmjs.com/package/agent-skills-standard)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
 [![GitHub Stars](https://img.shields.io/github/stars/HoangNguyen0403/agent-skills-standard?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/stargazers)
-[![common](https://img.shields.io/badge/common-v1.4.0-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/common-v1.4.0)
-[![flutter](https://img.shields.io/badge/flutter-v1.2.0-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/flutter-v1.2.0)
-[![dart](https://img.shields.io/badge/dart-v1.0.3-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/dart-v1.0.3)
-[![typescript](https://img.shields.io/badge/typescript-v1.0.4-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/typescript-v1.0.4)
+[![common](https://img.shields.io/badge/common-v1.5.0-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/common-v1.5.0)
+[![flutter](https://img.shields.io/badge/flutter-v1.3.0-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/flutter-v1.3.0)
+[![dart](https://img.shields.io/badge/dart-v1.0.4-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/dart-v1.0.4)
+[![typescript](https://img.shields.io/badge/typescript-v1.0.6-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/typescript-v1.0.6)
 [![react](https://img.shields.io/badge/react-v1.0.2-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/react-v1.0.2)
 [![react-native](https://img.shields.io/badge/react--native-v1.1.0-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/react-native-v1.1.0)
-[![nestjs](https://img.shields.io/badge/nestjs-v1.0.4-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/nestjs-v1.0.4)
+[![nestjs](https://img.shields.io/badge/nestjs-v1.1.0-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/nestjs-v1.1.0)
 [![nextjs](https://img.shields.io/badge/nextjs-v1.1.1-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/nextjs-v1.1.1)
 [![golang](https://img.shields.io/badge/golang-v1.0.2-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/golang-v1.0.2)
-[![angular](https://img.shields.io/badge/angular-v1.0.0-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/angular-v1.0.0)
-[![kotlin](https://img.shields.io/badge/kotlin-v1.0.0-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/kotlin-v1.0.0)
+[![angular](https://img.shields.io/badge/angular-v1.1.0-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/angular-v1.1.0)
+[![kotlin](https://img.shields.io/badge/kotlin-v1.0.1-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/kotlin-v1.0.1)
 [![java](https://img.shields.io/badge/java-v1.0.0-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/java-v1.0.0)
-[![spring-boot](https://img.shields.io/badge/spring--boot-v1.0.0-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/spring-boot-v1.0.0)
-[![android](https://img.shields.io/badge/android-v1.0.1-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/android-v1.0.1)
+[![spring-boot](https://img.shields.io/badge/spring--boot-v1.0.0-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/spring-boot-v1.0.1)
+[![android](https://img.shields.io/badge/android-v1.0.2-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/android-v1.0.2)
 [![swift](https://img.shields.io/badge/swift-v1.0.0-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/swift-v1.0.0)
-[![ios](https://img.shields.io/badge/ios-v1.0.1-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/ios-v1.0.1)
+[![ios](https://img.shields.io/badge/ios-v1.1.0-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/ios-v1.1.0)
 [![php](https://img.shields.io/badge/php-v1.0.0-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/php-v1.0.0)
 [![laravel](https://img.shields.io/badge/laravel-v1.0.0-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/laravel-v1.0.0)
 
@@ -237,29 +237,29 @@ If the CLI complains about configuration format:
 
 The Agent Skills Standard is designed to be the universal language for engineering standards.
 
-### 🔹 Current Support (v1.6.2)
+### 🔹 Current Support (v1.6.3)
 
 | Category                   | Key Modules                                           | Version  | Skills | Avg. Footprint |
 | :------------------------- | :---------------------------------------------------- | :------- | :----- | :------------- |
 | **☕ Spring Boot**         | Architecture, Security, Data, Test, Microservices     | `v1.0.0` | 10     | ~339 tokens    |
-| **🌐 Common**              | SOLID, Security (SQLi/HTMLi), TDD, Anti-Patterns      | `v1.3.0` | 14     | ~494 tokens    |
+| **🌐 Common**              | SOLID, Security (SQLi/HTMLi), TDD, Anti-Patterns      | `v1.5.0` | 14     | ~494 tokens    |
 | **🌐 Quality Engineering** | Business Analysis, Jira, Zephyr, QA Automation        | `v1.0.0` | 4      | ~500 tokens    |
-| **💙 Flutter**             | Clean Arch, BLoC, Riverpod, Testing, GetX, Nav v1     | `v1.1.2` | 21     | ~414 tokens    |
-| **🎯 Dart**                | Idiomatic Patterns, Advanced Tooling, Build Runner    | `v1.0.3` | 3      | ~435 tokens    |
+| **💙 Flutter**             | Clean Arch, BLoC, Riverpod, Testing, GetX, Nav v1     | `v1.3.0` | 21     | ~414 tokens    |
+| **🎯 Dart**                | Idiomatic Patterns, Advanced Tooling, Build Runner    | `v1.0.4` | 3      | ~435 tokens    |
 | **☕ Java**                | Modern Syntax, Virtual Threads, Testing, Tooling      | `v1.0.0` | 5      | ~522 tokens    |
-| **🔷 TypeScript**          | Type Safety, Security, Best Practices, Tooling        | `v1.0.4` | 4      | ~627 tokens    |
-| **🟨 JavaScript**          | Modern ES2022+ Patterns, Async/Await, Functional      | `v1.0.2` | 5      | ~522 tokens    |
+| **🔷 TypeScript**          | Type Safety, Security, Best Practices, Tooling        | `v1.0.6` | 4      | ~627 tokens    |
+| **🟨 JavaScript**          | Modern ES2022+ Patterns, Async/Await, Functional      | `v1.0.0` | 5      | ~522 tokens    |
 | **⚛️ React**               | Hooks, State Management, Performance, Security        | `v1.0.2` | 8      | ~396 tokens    |
-| **📱 React Native**        | Arch, Perf, Navigation, Security, Deployment          | `v1.0.1` | 8      | ~396 tokens    |
-| **🦁 NestJS**              | Architecture, Microservices, Security, CQRS, Scalling | `v1.0.3` | 21     | ~474 tokens    |
-| **▲ Next.js**              | App Router (v15), Caching (v16), Bundling, Debug      | `v1.1.0` | 17     | ~423 tokens    |
+| **📱 React Native**        | Arch, Perf, Navigation, Security, Deployment          | `v1.0.2` | 8      | ~396 tokens    |
+| **🦁 NestJS**              | Architecture, Microservices, Security, CQRS, Scalling | `v1.1.0` | 21     | ~474 tokens    |
+| **▲ Next.js**              | App Router (v15), Caching (v16), Bundling, Debug      | `v1.1.1` | 17     | ~423 tokens    |
 | **🐘 Laravel**             | Clean Arch, Eloquent, Security, Jobs, Redis, API      | `v1.0.0` | 10     | ~361 tokens    |
 | **🐹 Golang**              | Clean Architecture, API Design, Concurrency, Security | `v1.0.2` | 10     | ~351 tokens    |
-| **🐘 Kotlin**              | Idiomatic Patterns, Coroutines, Flow, Tooling         | `v1.0.0` | 4      | ~453 tokens    |
-| **🅰️ Angular**             | Standalone, Signals, Control Flow, SSR, Testing       | `v1.0.0` | 15     | ~276 tokens    |
-| **🤖 Android**             | Architecture, Compose, DI, Perf, Testing, WorkManager | `v1.0.0` | 22     | ~290 tokens    |
+| **🐘 Kotlin**              | Idiomatic Patterns, Coroutines, Flow, Tooling         | `v1.0.1` | 4      | ~453 tokens    |
+| **🅰️ Angular**             | Standalone, Signals, Control Flow, SSR, Testing       | `v1.1.0` | 15     | ~276 tokens    |
+| **🤖 Android**             | Architecture, Compose, DI, Perf, Testing, WorkManager | `v1.0.2` | 22     | ~290 tokens    |
 | **🍎 Swift**               | Language, Memory, Concurrency, SwiftUI, Testing       | `v1.0.0` | 8      | ~354 tokens    |
-| **📱 iOS**                 | Arch, UI, Lifecycle, Security, Perf, Networking, DI   | `v1.0.0` | 15     | ~404 tokens    |
+| **📱 iOS**                 | Arch, UI, Lifecycle, Security, Perf, Networking, DI   | `v1.1.0` | 15     | ~404 tokens    |
 
 > [!TIP]
 > **Quality Engineering (Opt-in)**: Advanced skills like `business-analysis` or `zephyr-test-generation` are in the **quality-engineering** category and are NOT synced by default to keep context lean. To use them, manually add the category to your `.skillsrc`:
@@ -268,7 +268,7 @@ The Agent Skills Standard is designed to be the universal language for engineeri
 > skills:
 >   quality-engineering: { ref: quality-engineering-v1.0.0 }
 > ```
-
+>
 > [!TIP]
 > **Enterprise Ready**: You can host your own **Private Skills Registry** on GitHub and point the CLI to it via the `registry` field in your `.skillsrc`.
 
