@@ -23,9 +23,14 @@ export class IndexGeneratorService {
    * Generates a markdown index of available skills across multiple categories.
    * @param baseDir The base directory containing categories and skills
    * @param frameworks List of framework categories to include in the index
+   * @param format The output format: 'detailed' (3 columns) or 'compact' (2 columns)
    * @returns A formatted markdown string representing the index
    */
-  async generate(baseDir: string, frameworks: string[]): Promise<string> {
+  async generate(
+    baseDir: string,
+    frameworks: string[],
+    format: 'detailed' | 'compact' = 'compact',
+  ): Promise<string> {
     const categories = ['common', ...frameworks];
     const entries: string[] = [];
 
@@ -40,13 +45,13 @@ export class IndexGeneratorService {
 
         const metadata = await this.parseSkill(skillPath);
         if (metadata) {
-          const entry = this.formatEntry(category, skill, metadata);
+          const entry = this.formatEntry(category, skill, metadata, format);
           entries.push(entry);
         }
       }
     }
 
-    return this.assembleIndex(entries);
+    return this.assembleIndex(entries, format);
   }
 
   /**
@@ -66,14 +71,30 @@ export class IndexGeneratorService {
         const markerStart = '<!-- SKILLS_INDEX_START -->';
         const markerEnd = '<!-- SKILLS_INDEX_END -->';
 
-        if (content.includes(markerStart) && content.includes(markerEnd)) {
-          const regex = new RegExp(`${markerStart}[\\s\\S]*${markerEnd}`);
-          content = content.replace(
-            regex,
-            `${markerStart}\n${indexContent}\n${markerEnd}`,
+        const startIndex = content.indexOf(markerStart);
+        const endIndex = content.indexOf(markerEnd);
+
+        if (startIndex !== -1 && endIndex !== -1 && startIndex < endIndex) {
+          // Both markers exist and are in the correct order
+          const preMarker = content.substring(
+            0,
+            startIndex + markerStart.length,
           );
+          const postMarker = content.substring(endIndex);
+          content = `${preMarker}\n${indexContent}\n${postMarker}`;
+        } else if (startIndex !== -1 || endIndex !== -1) {
+          // One of the markers is missing or they are out of order
+          // This is a damaged state, we should probably append at the end to be safe,
+          // but first let's try to remove any lone markers to avoid further damage.
+          content = content.replace(markerStart, '').replace(markerEnd, '');
+          content =
+            content.trimEnd() +
+            `\n\n${markerStart}\n${indexContent}\n${markerEnd}\n`;
         } else {
-          content += `\n\n${markerStart}\n${indexContent}\n${markerEnd}\n`;
+          // No markers found
+          content =
+            content.trimEnd() +
+            `\n\n${markerStart}\n${indexContent}\n${markerEnd}\n`;
         }
       } else {
         content = `<!-- SKILLS_INDEX_START -->\n${indexContent}\n<!-- SKILLS_INDEX_END -->\n`;
@@ -191,27 +212,39 @@ export class IndexGeneratorService {
     category: string,
     skill: string,
     metadata: SkillMetadata,
+    format: 'detailed' | 'compact',
   ): string {
     const id = `${category}/${skill}`;
-    // Truncate description to max 12 chars to save space
+    const prefix = metadata.priority.startsWith('P0') ? '🚨' : '';
+
+    if (format === 'detailed') {
+      const triggers = [
+        ...(metadata.triggers.files || []),
+        ...(metadata.triggers.keywords || []),
+      ].join(',');
+      return `| ${id} | \`${triggers}\` | ${prefix}${metadata.description} |`;
+    }
+
+    // Compact format: | cat/skill | 🚨desc |
     let desc = metadata.description || '';
     if (desc.length > 12) {
       desc = desc.substring(0, 11) + '…';
     }
-
-    // Remove triggers column to save space
-    // Remove all whitespace padding
-    const prefix = metadata.priority.startsWith('P0') ? '🚨' : '';
-    // Format: ID|Desc (No outer pipes to save 2 bytes/line)
-    return `${id}|${prefix}${desc}`;
+    return `| ${id} | ${prefix}${desc} |`;
   }
 
   /**
    * Assembles the full index markdown including headers and Zero-Trust rules.
    * @param entries List of formatted skill entries
+   * @param format The format of the entries ('detailed' or 'compact')
    * @returns Complete markdown index string
    */
-  public assembleIndex(entries: string[]): string {
+  public assembleIndex(
+    entries: string[],
+    format: 'detailed' | 'compact' = 'detailed',
+  ): string {
+    const isDetailed = format === 'detailed';
+
     const header = [
       '# Agent Skills Index',
       '',
@@ -225,8 +258,10 @@ export class IndexGeneratorService {
       '',
       'IMPORTANT: Prefer retrieval-led reasoning. Consult skill files before acting.',
       '',
-      '| Skill ID | Triggers | Description |',
-      '| :--- | :--- | :--- |',
+      isDetailed
+        ? '| Skill ID | Triggers | Description |'
+        : '| Skill ID | Description |',
+      isDetailed ? '| :--- | :--- | :--- |' : '| :--- | :--- |',
     ].join('\n');
 
     return `${header}\n${entries.join('\n')}\n`;

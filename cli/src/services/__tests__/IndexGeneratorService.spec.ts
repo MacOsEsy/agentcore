@@ -43,8 +43,8 @@ describe('IndexGeneratorService', () => {
 
       const result = await service.generate(baseDir, frameworks);
 
-      expect(result).toContain('common/base|🚨Desc');
-      expect(result).toContain('flutter/bloc|🚨Desc');
+      expect(result).toContain('| common/base | 🚨Desc |');
+      expect(result).toContain('| flutter/bloc | 🚨Desc |');
     });
 
     it('should handle missing categories or skills', async () => {
@@ -119,6 +119,21 @@ describe('IndexGeneratorService', () => {
       expect(call[1]).toContain('existing text');
       expect(call[1]).toContain('<!-- SKILLS_INDEX_START -->');
       expect(call[1]).toContain('index content');
+    });
+
+    it('should handle missing markers by cleaning up and appending', async () => {
+      (fs.pathExists as any).mockResolvedValue(true);
+      (fs.readFile as any).mockResolvedValue(
+        'pre <!-- SKILLS_INDEX_START --> mid',
+      );
+      await service.inject('/root', 'new content');
+      const call = vi.mocked(fs.outputFile).mock.calls[0];
+      // It should remove the lone marker and append a new block
+      expect(call[1]).not.toContain('pre <!-- SKILLS_INDEX_START --> mid');
+      expect(call[1]).toContain('pre  mid');
+      expect(call[1]).toContain(
+        '<!-- SKILLS_INDEX_START -->\nnew content\n<!-- SKILLS_INDEX_END -->',
+      );
     });
   });
 
@@ -228,10 +243,15 @@ describe('IndexGeneratorService', () => {
         priority: 'P0 - URRGENT',
         triggers: {},
       };
-      const entry = (service as any).formatEntry('cat', 'skill', metadata);
+      const entry = (service as any).formatEntry(
+        'cat',
+        'skill',
+        metadata,
+        'compact',
+      );
       expect(entry).toContain('🚨d');
-      // Check strict format ID|Desc
-      expect(entry).toBe('cat/skill|🚨d');
+      // Check strict format | ID | Desc |
+      expect(entry).toBe('| cat/skill | 🚨d |');
     });
     it('should truncate long descriptions to 12 chars', async () => {
       const metadata = {
@@ -240,9 +260,14 @@ describe('IndexGeneratorService', () => {
         priority: 'P1',
         triggers: {},
       };
-      const entry = (service as any).formatEntry('cat', 'skill', metadata);
+      const entry = (service as any).formatEntry(
+        'cat',
+        'skill',
+        metadata,
+        'compact',
+      );
       expect(entry).toContain('This is a v…');
-      expect(entry.split('|')[1].length).toBeLessThanOrEqual(13); // 12 chars + potential emoji
+      expect(entry).toBe('| cat/skill | This is a v… |');
     });
   });
 });

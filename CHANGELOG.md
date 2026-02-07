@@ -5,6 +5,22 @@ All notable changes to the Programming Languages and Frameworks Agent Skills wil
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.5] - 2026-02-07
+
+**Category**: Index Robustness & Formatting & Skill Filtering
+
+### Fixed (CLI v1.6.5)
+
+- **🩹 Agent Index Duplication Fix**:
+  - Implemented robust injection logic that cleans up corrupted or lone markers before re-injecting, ensuring IDempotency.
+  - Added unit tests for marker cleanup edge cases.
+- **✨ Enhanced Index Generation**:
+  - Added support for `detailed` (3-column) and `compact` (2-column) formats.
+  - Implemented project-level filtering for `AGENTS.md`: the index now only contains skill categories enabled in `.skillsrc`.
+  - Fixed table header alignment and 3-column data mismatch.
+- **🧹 Tech Debt & Linting**:
+  - Resolved all lint errors in `generate-indices.ts` (removed `any` usage and unused variables).
+
 ## [1.6.4] - 2026-02-07
 
 **Category**: Workflow Automation & E2E Verification Expansion

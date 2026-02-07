@@ -98,10 +98,36 @@ async function generate() {
   // Also update AGENTS.md
   // Update AGENTS.md in the repository root (one level up)
   const repoRoot = path.join(process.cwd(), '..');
+
+  // Filter AGENTS.md content based on .skillsrc enabled categories
+  let enabledCategories: string[] | null = null;
+  const skillsrcPath = path.join(repoRoot, '.skillsrc');
+  if (await fs.pathExists(skillsrcPath)) {
+    try {
+      const skillsrcContent = await fs.readFile(skillsrcPath, 'utf8');
+      const skillsrc = yaml.load(skillsrcContent) as {
+        skills?: Record<string, unknown>;
+      };
+      if (skillsrc && skillsrc.skills) {
+        enabledCategories = Object.keys(skillsrc.skills);
+        console.log(
+          `🔍 Filtering AGENTS.md to categories: ${enabledCategories.join(', ')}`,
+        );
+      }
+    } catch {
+      console.warn(`⚠️ Failed to parse .skillsrc, including all categories.`);
+    }
+  }
+
   const generator = new IndexGeneratorService();
-  const indexContent = generator.assembleIndex(
-    Object.values(frameworkIndices).flatMap((s) => s.split('\n')),
-  );
+  const allEntries = Object.entries(frameworkIndices)
+    .filter(
+      ([category]) =>
+        !enabledCategories || enabledCategories.includes(category),
+    )
+    .flatMap(([, s]) => s.split('\n'));
+
+  const indexContent = generator.assembleIndex(allEntries, 'detailed');
 
   await generator.inject(repoRoot, indexContent);
   console.log('✅ Updated AGENTS.md in repo root');
