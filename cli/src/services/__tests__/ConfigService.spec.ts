@@ -87,7 +87,7 @@ describe('ConfigService', () => {
       await configService.saveConfig(mockConfig, mockCwd);
 
       expect(yaml.dump).toHaveBeenCalledWith(mockConfig);
-      expect(fs.writeFile).toHaveBeenCalledWith(
+      expect(fs.outputFile).toHaveBeenCalledWith(
         path.join(mockCwd, '.skillsrc'),
         'mock yaml',
       );
@@ -228,6 +228,18 @@ describe('ConfigService', () => {
         'react/hooks',
         'react/component-patterns',
       ]);
+    });
+
+    it('should include workflows in initial config if provided', () => {
+      const config = configService.buildInitialConfig(
+        'flutter',
+        [],
+        'url',
+        {},
+        [],
+        ['workflow-1'],
+      );
+      expect(config.workflows).toEqual(['workflow-1']);
     });
   });
 

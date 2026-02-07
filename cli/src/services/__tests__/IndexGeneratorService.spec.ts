@@ -49,7 +49,7 @@ describe('IndexGeneratorService', () => {
     it('should handle missing categories or skills', async () => {
       (fs.pathExists as any).mockResolvedValue(false);
       const result = await service.generate('/skills', ['missing']);
-      expect(result).toContain('# Index');
+      expect(result).toContain('# Agent Skills Index');
       // Check for absence of data rows (rows that look like category/skill|)
       const lines = result.split('\n');
       const dataRows = lines.filter((l) => l.includes('/') && l.includes('|'));
@@ -63,7 +63,7 @@ describe('IndexGeneratorService', () => {
       (fs.readdir as any).mockResolvedValue(['skill']);
 
       const result = await service.generate('/skills', ['common']);
-      expect(result).toContain('# Index');
+      expect(result).toContain('# Agent Skills Index');
     });
   });
 
@@ -71,7 +71,7 @@ describe('IndexGeneratorService', () => {
     it('should create AGENTS.md if it does not exist', async () => {
       (fs.pathExists as any).mockResolvedValue(false);
       await service.inject('/root', 'index content');
-      expect(fs.writeFile).toHaveBeenCalledWith(
+      expect(fs.outputFile).toHaveBeenCalledWith(
         expect.stringContaining('AGENTS.md'),
         expect.stringContaining('index content'),
       );
@@ -83,7 +83,7 @@ describe('IndexGeneratorService', () => {
         'pre\n<!-- SKILLS_INDEX_START -->\nold\n<!-- SKILLS_INDEX_END -->\npost',
       );
       await service.inject('/root', 'new content');
-      const call = vi.mocked(fs.writeFile).mock.calls[0];
+      const call = vi.mocked(fs.outputFile).mock.calls[0];
       expect(call[1]).toContain('new content');
       expect(call[1]).not.toContain('old');
       expect(call[1]).toContain('pre');
@@ -94,7 +94,7 @@ describe('IndexGeneratorService', () => {
       (fs.pathExists as any).mockResolvedValue(true);
       (fs.readFile as any).mockResolvedValue('existing text');
       await service.inject('/root', 'index content');
-      const call = vi.mocked(fs.writeFile).mock.calls[0];
+      const call = vi.mocked(fs.outputFile).mock.calls[0];
       expect(call[1]).toContain('existing text');
       expect(call[1]).toContain('<!-- SKILLS_INDEX_START -->');
       expect(call[1]).toContain('index content');
@@ -106,7 +106,7 @@ describe('IndexGeneratorService', () => {
       const entries = ['cat/skill|desc'];
       const result = service.assembleIndex(entries);
       expect(result).toContain('cat/skill|desc');
-      expect(result).toContain('# Index');
+      expect(result).toContain('# Agent Skills Index');
     });
   });
 
@@ -120,7 +120,7 @@ describe('IndexGeneratorService', () => {
       await service.bridge(rootDir, agents);
 
       // Verify Antigravity rule
-      expect(fs.writeFile).toHaveBeenCalledWith(
+      expect(fs.outputFile).toHaveBeenCalledWith(
         expect.stringContaining(
           '/root/.agent/rules/agent-skill-standard-rule.md',
         ),
@@ -128,7 +128,7 @@ describe('IndexGeneratorService', () => {
       );
 
       // Verify Cursor rule with frontmatter
-      expect(fs.writeFile).toHaveBeenCalledWith(
+      expect(fs.outputFile).toHaveBeenCalledWith(
         expect.stringContaining(
           '/root/.cursor/rules/agent-skill-standard-rule.mdc',
         ),
@@ -138,7 +138,7 @@ describe('IndexGeneratorService', () => {
       );
 
       // Verify Copilot rule with frontmatter and .instructions.md extension
-      expect(fs.writeFile).toHaveBeenCalledWith(
+      expect(fs.outputFile).toHaveBeenCalledWith(
         expect.stringContaining(
           '/root/.github/instructions/agent-skill-standard-rule.instructions.md',
         ),
@@ -152,7 +152,7 @@ describe('IndexGeneratorService', () => {
 
       await service.bridge(rootDir, agents);
 
-      expect(fs.writeFile).toHaveBeenCalledWith(
+      expect(fs.outputFile).toHaveBeenCalledWith(
         expect.stringContaining(
           '/root/.roo/rules/agent-skill-standard-rule.md',
         ),
@@ -190,6 +190,17 @@ describe('IndexGeneratorService', () => {
       expect(entry).toContain('🚨d');
       // Check strict format ID|Desc
       expect(entry).toBe('cat/skill|🚨d');
+    });
+    it('should truncate long descriptions to 12 chars', async () => {
+      const metadata = {
+        name: 'n',
+        description: 'This is a very long description that should be truncated',
+        priority: 'P1',
+        triggers: {},
+      };
+      const entry = (service as any).formatEntry('cat', 'skill', metadata);
+      expect(entry).toContain('This is a v…');
+      expect(entry.split('|')[1].length).toBeLessThanOrEqual(13); // 12 chars + potential emoji
     });
   });
 });
