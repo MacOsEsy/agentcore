@@ -3,7 +3,11 @@ import path from 'path';
 import pc from 'picocolors';
 import { Agent, SUPPORTED_AGENTS } from '../constants';
 import { SkillConfig, SkillEntry } from '../models/config';
-import { CollectedSkill, GitHubTreeItem } from '../models/types';
+import {
+  CollectedSkill,
+  GitHubTreeItem,
+  RegistryMetadata,
+} from '../models/types';
 import { ConfigService } from './ConfigService';
 import { GithubService } from './GithubService';
 import { IndexGeneratorService } from './IndexGeneratorService';
@@ -180,10 +184,13 @@ export class SyncService {
     if (!githubMatch) return [];
 
     const { owner, repo } = githubMatch;
-    // Use the ref from the first skill category or default to main
-    const firstCategory = Object.keys(config.skills)[0];
-    const ref =
-      (firstCategory ? config.skills[firstCategory].ref : null) || 'main';
+
+    // Workflows should ALWAYS come from the default branch of the registry to be reliable
+    let ref = 'main';
+    const repoInfo = await this.githubService.getRepoInfo(owner, repo);
+    if (repoInfo && repoInfo.default_branch) {
+      ref = repoInfo.default_branch;
+    }
 
     console.log(pc.gray(`  - Discovering workflows (${ref})...`));
 
@@ -283,13 +290,6 @@ export class SyncService {
       }
     }
 
-    if (agents.length === 0) {
-      console.log(
-        pc.yellow('  ⚠️  No agents enabled, skipping index generation.'),
-      );
-      return;
-    }
-
     console.log(pc.cyan('🔍 Updating Agent Skills index...'));
 
     // We use the path of the first enabled agent as the source of truth for generating the index.
@@ -323,9 +323,55 @@ export class SyncService {
     }
   }
 
-  async checkForUpdates(config: SkillConfig): Promise<SkillConfig> {
-    // Simplified implementation for now
-    return config;
+  /**
+   * Checks for newer versions of skills in the remote registry.
+   * Compares the current 'ref' in .skillsrc with the latest versions in metadata.json.
+   * @returns An object containing updated skills if any, or null if no updates.
+   */
+  async checkForUpdates(
+    config: SkillConfig,
+  ): Promise<Record<string, string> | null> {
+    const githubMatch = GithubService.parseGitHubUrl(config.registry);
+    if (!githubMatch) return null;
+
+    const { owner, repo } = githubMatch;
+    let branch = 'main';
+
+    try {
+      const repoInfo = await this.githubService.getRepoInfo(owner, repo);
+      if (repoInfo && repoInfo.default_branch) {
+        branch = repoInfo.default_branch;
+      }
+
+      const metaContent = await this.githubService.getRawFile(
+        owner,
+        repo,
+        branch,
+        'skills/metadata.json',
+      );
+
+      if (!metaContent) return null;
+
+      const metadata = JSON.parse(metaContent) as RegistryMetadata;
+      const updates: Record<string, string> = {};
+
+      for (const [category, catConfig] of Object.entries(config.skills)) {
+        const remoteMeta = metadata.categories[category];
+        if (!remoteMeta || !remoteMeta.version) continue;
+
+        const latestRef = `${remoteMeta.tag_prefix || ''}${remoteMeta.version}`;
+        if (catConfig.ref !== latestRef) {
+          updates[category] = latestRef;
+        }
+      }
+
+      return Object.keys(updates).length > 0 ? updates : null;
+    } catch (error) {
+      if (process.env.DEBUG) {
+        console.warn(`[SyncService] Update check failed: ${error}`);
+      }
+      return null;
+    }
   }
 
   // --- Helper Methods ---
