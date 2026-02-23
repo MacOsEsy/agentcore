@@ -226,7 +226,7 @@
     },
     "database": {
       "version": "1.0.0",
-      "last_updated": "2026-02-24",
+      "last_updated": "2026-02-23",
       "tag_prefix": "database-v",
       "token_metrics": {
         "total_skills": 3,
