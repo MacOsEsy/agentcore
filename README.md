@@ -101,7 +101,7 @@ To ensure AI efficiency, this project follows a strict **Token Economy**. Every 
 
 ### 📏 Our Standards
 
-- **High-Density**: Core rules in `SKILL.md` are kept under **70 lines**.
+- **High-Density**: Core rules in `SKILL.md` are kept under **100 lines**.
 - **Efficiency**: Target **< 500 tokens** per primary skill file.
 - **Progressive Disclosure**: Heavy examples, checklists, and implementation guides are moved to the `references/` directory and are only loaded by the agent when specific context matches.
 
@@ -263,7 +263,7 @@ If the CLI complains about configuration format:
 
 The Agent Skills Standard is designed to be the universal language for engineering standards.
 
-### 🔹 Current Support (v1.6.7)
+### 🔹 Current Support (v1.7.0)
 
 | Category                   | Key Modules                                           | Version  | Skills | Avg. Footprint |
 | :------------------------- | :---------------------------------------------------- | :------- | :----- | :------------- |
