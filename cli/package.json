@@ -34,7 +34,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MacOsEsy/agent-skills-standard.git"
+    "url": "git+https://github.com/MacOsEsy/agentcore.git"
   },
   "keywords": [
     "ai",

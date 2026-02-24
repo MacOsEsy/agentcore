@@ -24,7 +24,7 @@
 
 **The open standard for High-Density AI coding instructions. Make your AI smarter, faster, and more consistent.**
 
-> **Fork notice**: AgentCore is a fork of the original [`agent-skills-standard`](https://github.com/HoangNguyen0403/agent-skills-standard), maintained by **Van Toan** at [`MacOsEsy/agent-skills-standard`](https://github.com/MacOsEsy/agent-skills-standard).
+> **Fork notice**: AgentCore is a fork of the original [`agent-skills-standard`](https://github.com/HoangNguyen0403/agent-skills-standard), maintained by **Van Toan** at [`MacOsEsy/agentcore`](https://github.com/MacOsEsy/agentcore).
 
 AgentCore is a modular framework to distribute, sync, and version-control engineering standards across all major AI agents (**Cursor, Claude Code, GitHub Copilot, Windsurf, Kiro, Gemini, Antigravity, and custom LLM workflows**), built on top of the original Agent Skills Standard.
 
