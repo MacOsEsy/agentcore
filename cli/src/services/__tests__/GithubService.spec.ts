@@ -275,8 +275,8 @@ describe('GithubService', () => {
         'https://github.com/MacOsEsy/agentcore',
       );
       expect(result).toEqual({
-        owner: 'HoangNguyen0403',
-        repo: 'agent-skills-standard',
+        owner: 'MacOsEsy',
+        repo: 'agentcore',
       });
     });
 

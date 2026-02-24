@@ -39,7 +39,7 @@ To use the automated pipeline, you first need to create the service on Render:
    - **Dockerfile Path**: Set to `server/Dockerfile`.
 4. **Environment Variables**: Add the following in the Render "Environment" tab:
    - `GITHUB_TOKEN`: Your personal access token.
-   - `GITHUB_OWNER`: `HoangNguyen0403`.
+   - `GITHUB_OWNER`: `MacOsEsy`.
    - `GITHUB_REPO`: `agent-skills-standard`.
    - `NODE_ENV`: `production`.
 5. **Disable Auto-Deploy**: Go to "Settings" > "General" and set **Auto-Deploy** to **`No`**.

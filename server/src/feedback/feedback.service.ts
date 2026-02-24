@@ -24,7 +24,7 @@ export class FeedbackService {
     });
     this.owner = this.configService.get<string>(
       'GITHUB_OWNER',
-      'HoangNguyen0403',
+      'MacOsEsy',
     );
     this.repo = this.configService.get<string>(
       'GITHUB_REPO',
