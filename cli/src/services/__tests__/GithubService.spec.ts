@@ -272,7 +272,7 @@ describe('GithubService', () => {
   describe('parseGitHubUrl', () => {
     it('should correctly parse valid GitHub URLs', () => {
       const result = GithubService.parseGitHubUrl(
-        'https://github.com/HoangNguyen0403/agent-skills-standard',
+        'https://github.com/MacOsEsy/agentcore',
       );
       expect(result).toEqual({
         owner: 'HoangNguyen0403',

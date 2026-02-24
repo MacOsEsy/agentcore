@@ -24,7 +24,7 @@
 
 **The open standard for High-Density AI coding instructions. Make your AI smarter, faster, and more consistent.**
 
-> **Fork notice**: AgentCore is a fork of the original [`agent-skills-standard`](https://github.com/HoangNguyen0403/agent-skills-standard), maintained by **Van Toan** at [`MacOsEsy/agentcore`](https://github.com/MacOsEsy/agentcore).
+> **Fork notice**: AgentCore is a fork of the original [`agent-skills-standard`](https://github.com/HoangNguyen0403/agent-skills-standard), maintained by **MacOsEsy** at [`MacOsEsy/agentcore`](https://github.com/MacOsEsy/agentcore).
 
 AgentCore is a modular framework to distribute, sync, and version-control engineering standards across all major AI agents (**Cursor, Claude Code, GitHub Copilot, Windsurf, Kiro, Gemini, Antigravity, and custom LLM workflows**), built on top of the original Agent Skills Standard.
 
@@ -209,7 +209,7 @@ This `AGENTS.md` file serves as a **universal entry point** that helps all AI ag
 The `.skillsrc` file allows you to customize how skills are synced to your project.
 
 ```yaml
-registry: https://github.com/HoangNguyen0403/agent-skills-standard
+registry: https://github.com/MacOsEsy/agentcore
 agents: [cursor, copilot, kiro]
 skills:
   flutter:
@@ -365,6 +365,6 @@ This is the recommended way to verify that skill injections and discovery bridge
 
 - **License**: MIT
 - **Original author**: [Hoang Nguyen](https://github.com/HoangNguyen0403)
-- **Current maintainer**: [Van Toan](https://github.com/MacOsEsy)
+- **Current maintainer**: [MacOsEsy](https://github.com/MacOsEsy)
 
 ---

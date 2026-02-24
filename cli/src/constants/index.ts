@@ -5,7 +5,7 @@ export { Agent, Framework };
 export const UNIVERSAL_SKILLS = ['common'];
 
 export const DEFAULT_REGISTER =
-  'https://github.com/HoangNguyen0403/agent-skills-standard';
+  'https://github.com/MacOsEsy/agentcore';
 
 export const DEFAULT_WORKFLOWS = ['code-review', 'plan-feature'];
 

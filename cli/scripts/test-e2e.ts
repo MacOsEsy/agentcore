@@ -44,7 +44,7 @@ async function main() {
 
     // Create a mock .skillsrc
     const mockConfig = {
-      registry: 'https://github.com/HoangNguyen0403/agent-skills-standard',
+      registry: 'https://github.com/MacOsEsy/agentcore',
       agents: ['antigravity'],
       skills: {
         // Limit checkout to a few skills to optimize test time and avoid rate limits

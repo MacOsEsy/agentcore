@@ -635,7 +635,7 @@ Major expansion of the Flutter ecosystem with new reactive patterns, legacy supp
 
 ### Fixed (CLI v1.1.2)
 
-- **Node.js ESM Conflict** - Resolved `ERR_REQUIRE_ESM` by downgrading `inquirer` to v8 for CommonJS compatibility. (Fixes [#11](https://github.com/HoangNguyen0403/agent-skills-standard/issues/11))
+<!-- - **Node.js ESM Conflict** - Resolved `ERR_REQUIRE_ESM` by downgrading `inquirer` to v8 for CommonJS compatibility. (Fixes [#11](https://github.com/HoangNguyen0403/agent-skills-standard/issues/11)) -->
 
 ## [1.1.1] - 2026-01-18
 
@@ -777,6 +777,6 @@ Includes 18 specialized High-Density skills for Enterprise Backend Development.
 ---
 
 **Maintainer**: Hoang Nguyen  
-**Registry**: <https://github.com/HoangNguyen0403/agent-skills-standard>
+**Registry**: <https://github.com/MacOsEsy/agentcore>
 
 </details>

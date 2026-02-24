@@ -1,6 +1,6 @@
 {
   "name": "agentcore-root",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "private": false,
   "bin": {
     "agentcore": "cli/dist/index.js"
@@ -9,7 +9,7 @@
     "type": "git",
     "url": "git+https://github.com/MacOsEsy/agentcore.git"
   },
-  "author": "Van Toan",
+  "author": "MacOsEsy",
   "packageManager": "pnpm@10.0.0",
   "pnpm": {
     "overrides": {

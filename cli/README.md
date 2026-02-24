@@ -50,7 +50,7 @@ We take security seriously. Here is what you need to know about how the CLI work
 - **No Hidden Scripts**: The CLI `sync` command only downloads **text files** (Markdown/JSON). It does _not_ download or execute binaries, scripts, or unknown code.
 - **No "Code Injection"**: When we say "injection", we mean **Prompt Injection** (adding context to the AI's conversation history), NOT code injection (running malware).
 - **Transparent Operations**:
-  - The CLI fetches a standard directory structure from the [official registry](https://github.com/HoangNguyen0403/agent-skills-standard).
+  - The CLI fetches a standard directory structure from the [official registry](https://github.com/MacOsEsy/agentcore).
   - It copies these text files to your local `.cursor/skills` or `.agent/skills` folder.
   - It updates `AGENTS.md` (a text file index).
   - **That is it.** No background services, no daemons, no hidden network calls.
@@ -174,7 +174,7 @@ npx agentcore@latest sync
 The `.skillsrc` file allows you to customize how skills are synced to your project.
 
 ```yaml
-registry: https://github.com/HoangNguyen0403/agent-skills-standard
+registry: https://github.com/MacOsEsy/agentcore
 agents: [cursor, copilot]
 skills:
   flutter:
@@ -216,7 +216,7 @@ skills:
 
 ## 🌍 Supported Stacks
 
-The CLI connects to the [Official Skills Registry](https://github.com/HoangNguyen0403/agent-skills-standard), which currently supports:
+The CLI connects to the [Official Skills Registry](https://github.com/MacOsEsy/agentcore), which currently supports:
 
 - **Flutter**: Clean Architecture, BLoC, AutoRoute, Performance, Security.
 - **Dart**: Idiomatic Patterns, Advanced Tooling.
@@ -236,8 +236,8 @@ The CLI connects to the [Official Skills Registry](https://github.com/HoangNguye
 
 ## 🔗 Links
 
-- **Registry Source**: [GitHub Repository](https://github.com/HoangNguyen0403/agent-skills-standard)
-- **Standard Specs**: [Documentation](https://github.com/HoangNguyen0403/agent-skills-standard#📂-standard-specification)
+- **Registry Source**: [GitHub Repository](https://github.com/MacOsEsy/agentcore)
+- **Standard Specs**: [Documentation](https://github.com/MacOsEsy/agentcore#📂-standard-specification)
 - **Issues**: [Report a bug](https://github.com/HoangNguyen0403/agent-skills-standard/issues)
 
 ---
