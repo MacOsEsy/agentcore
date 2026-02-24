@@ -1,0 +1,370 @@
+# AgentCore
+
+[![NPM Version](https://img.shields.io/npm/v/agentcore.svg?style=flat-square)](https://www.npmjs.com/package/agentcore)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
+[![GitHub Stars](https://img.shields.io/github/stars/HoangNguyen0403/agent-skills-standard?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/stargazers)
+[![common](https://img.shields.io/badge/common-v1.5.0-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/common-v1.5.0)
+[![flutter](https://img.shields.io/badge/flutter-v1.3.1-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/flutter-v1.3.1)
+[![dart](https://img.shields.io/badge/dart-v1.0.4-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/dart-v1.0.4)
+[![typescript](https://img.shields.io/badge/typescript-v1.0.6-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/typescript-v1.0.6)
+[![react](https://img.shields.io/badge/react-v1.0.2-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/react-v1.0.2)
+[![react-native](https://img.shields.io/badge/react--native-v1.1.0-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/react-native-v1.1.0)
+[![nestjs](https://img.shields.io/badge/nestjs-v1.1.1-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/nestjs-v1.1.1)
+[![nextjs](https://img.shields.io/badge/nextjs-v1.1.1-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/nextjs-v1.1.1)
+[![golang](https://img.shields.io/badge/golang-v1.0.2-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/golang-v1.0.2)
+[![angular](https://img.shields.io/badge/angular-v1.1.0-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/angular-v1.1.0)
+[![kotlin](https://img.shields.io/badge/kotlin-v1.0.1-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/kotlin-v1.0.1)
+[![java](https://img.shields.io/badge/java-v1.0.0-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/java-v1.0.0)
+[![spring-boot](https://img.shields.io/badge/spring--boot-v1.0.0-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/spring-boot-v1.0.1)
+[![android](https://img.shields.io/badge/android-v1.0.2-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/android-v1.0.2)
+[![swift](https://img.shields.io/badge/swift-v1.0.0-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/swift-v1.0.0)
+[![ios](https://img.shields.io/badge/ios-v1.1.0-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/ios-v1.1.0)
+[![php](https://img.shields.io/badge/php-v1.0.0-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/php-v1.0.0)
+[![laravel](https://img.shields.io/badge/laravel-v1.0.0-blue?style=flat-square)](https://github.com/HoangNguyen0403/agent-skills-standard/releases/tag/laravel-v1.0.0)
+
+**The open standard for High-Density AI coding instructions. Make your AI smarter, faster, and more consistent.**
+
+> **Fork notice**: AgentCore is a fork of the original [`agent-skills-standard`](https://github.com/HoangNguyen0403/agent-skills-standard), maintained by **Van Toan** at [`MacOsEsy/agent-skills-standard`](https://github.com/MacOsEsy/agent-skills-standard).
+
+AgentCore is a modular framework to distribute, sync, and version-control engineering standards across all major AI agents (**Cursor, Claude Code, GitHub Copilot, Windsurf, Kiro, Gemini, Antigravity, and custom LLM workflows**), built on top of the original Agent Skills Standard.
+
+---
+
+## 💡 What is this?
+
+Think of AgentCore as a **universal instruction manual** for your AI assistant.
+
+Usually, when you use AI for work, you have to constantly remind it of your "house rules" (e.g., _"Make sure to handle errors this way"_ or _"Use this specific layout"_). This project allows teams to package those rules into **"Skills"** that you can plug into any AI tool instantly.
+
+### Why does this matter?
+
+- **For Managers**: Ensure your entire team writes high-quality code that follows your company's standards, regardless of which AI tool they use.
+- **For Non-IT Users**: You don't need to know _how_ the rules are written; you just run one command to "upgrade" your AI with professional-grade engineering knowledge.
+- **For Teams**: No more "Hey, why did the AI write it this way?"—everyone's AI uses the same playbook.
+
+---
+
+## ⚡ The Problem: "The Context Wall"
+
+Modern AI coding agents are powerful, but they struggle when managing project-wide rules:
+
+1. **Information Overload**: Providing too many instructions at once confuses the AI and makes it forgetful.
+2. **Version Chaos**: Every team member has a different version of "best practices" floating around their local computer.
+3. **Wasted Space**: Long, wordy instructions "eat up" the AI's limited memory (the Context Window), making it more expensive and less effective.
+
+---
+
+## 🛠 The Solution: Digital DNA for AI
+
+AgentCore treats instructions as **versioned dependencies**, much like software libraries.
+
+- **🎯 Smart Loading**: We use a "Search-on-Demand" pattern. The AI only looks at detailed examples when it specifically needs them, saving its memory for your actual code.
+- **🚀 High-Density Language**: We use a specialized "Compressed Syntax" that is **40% more efficient** than normal English. This means the AI understands more while using fewer resources.
+- **🔁 One-Click Sync**: A single command ensures your AI tool stays up-to-date with your team's latest standards.
+
+---
+
+## 🛡️ Security & Trust
+
+We understand that "injecting" instructions into your AI can sound risky. Here is how we keep you safe:
+
+- **No Code Execution**: Skills are pure Markdown/JSON files. They contain _text instructions_ for the AI, not executable code. They cannot run commands on your machine.
+- **Open Source**: The entire registry is open source. You can audit every skill file on GitHub before using it.
+- **Sandboxed**: The AgentCore CLI (`agentcore`) runs in user space to download text files. The "skills" themselves run inside the AI's isolated context window, not as OS processes.
+- **Privacy**: We do not collect any code or project data. Feedback is only sent if you manually trigger the `feedback` command or strongly opt-in.
+
+---
+
+## ✨ Features
+
+- **🛡️ Multi-Agent Support**: Out-of-the-box mapping for Cursor, Claude Dev, GitHub Copilot, and more.
+- **📦 Modular Registry**: Don't load everything. Only enable the skills your project actually uses.
+- **⚡ Proactive Activation (Universal)**: Generates a compressed index in `AGENTS.md` for 100% activation reliability across Cursor, Windsurf, Claude Code, and more.
+- **🔄 Dynamic Re-detection**: Automatically re-enables skills if matching dependencies are added.
+- **🔒 Secure Overrides**: Lock specific files so they never get overwritten.
+- **📊 Semantic Tagging**: Skills tagged with triggers for exact application.
+- **🤖 Agent Workflows**: Sync executable workflows (.md files) that agents can follow to perform complex tasks.
+
+---
+
+## 🛠️ CLI Commands
+
+- `init`: Initialize a fresh `.skillsrc` config.
+- `sync`: Sync skills from remote registry and automatically update the `AGENTS.md` index.
+- `validate`: Validate skill format and token standards.
+- `feedback`: Report skill violations or improvements.
+- `upgrade`: Upgrade the CLI to the latest version.
+
+---
+
+## ✨ Token Economy & Optimization
+
+To ensure AI efficiency, this project follows a strict **Token Economy**. Every skill is audited for its footprint in the AI's context window.
+
+### 📏 Our Standards
+
+- **High-Density**: Core rules in `SKILL.md` are kept under **70 lines**.
+- **Efficiency**: Target **< 500 tokens** per primary skill file.
+- **Progressive Disclosure**: Heavy examples, checklists, and implementation guides are moved to the `references/` directory and are only loaded by the agent when specific context matches.
+
+### 🛠️ Token Calculation
+
+We provide a built-in tool in the CLI to estimate and track the token footprint:
+
+```bash
+pnpm calculate-tokens
+```
+
+This command:
+
+1. Scans all `SKILL.md` files in the registry.
+2. Calculates character-based token estimates.
+3. Updates `skills/metadata.json` with category metrics (total tokens, avg/skill, and identifying the largest skills).
+
+By maintaining a "Lean Registry," we ensure that your AI assistant remains fast and focused, preserving the majority of its context window for your actual project code.
+
+---
+
+## 🔒 Privacy & Feedback
+
+### Feedback Reporter Skill
+
+By default, the CLI syncs a `common/feedback-reporter` skill that enables you to report when AI makes mistakes or when skill guidance needs improvement. **This helps us improve skills for everyone.**
+
+**What Gets Shared (Only if You Report):**
+
+- Skill category and name
+- Issue description (written by you or generated by AI)
+- **Skill Instruction**: Exact quote from the skill that was violated
+- **Actual Action**: What the AI did instead
+- **Decision Reason**: Why the AI chose that approach
+- Optional context (framework version, scenario)
+- Optional AI Model name
+- **NO code, NO project details, NO personal information**
+
+**How to Opt-Out:**
+Add to `.skillsrc`:
+
+```yaml
+skills:
+  common:
+    exclude: ['feedback-reporter']
+```
+
+#### Manual Feedback
+
+If you notice a skill needs improvement, you can manually send feedback using (no installation required):
+
+```bash
+npx agentcore feedback
+```
+
+**How it works:**
+
+- **Cross-Platform**: Works instantly on **Windows, MacOS, and Linux** via `npx`.
+- The CLI attempts to submit your feedback automatically via our **High-Density Feedback Backend** (hosted on Render.com).
+- **No token needed**: We handle the GitHub integration securely on the server.
+
+Or via structured comments in your code:
+
+```typescript
+// @agent-skills-feedback
+// Skill: react/hooks
+// Issue: AI suggested unsafe pattern
+// Suggestion: Add guidance for this case
+```
+
+**Privacy First**: We never collect usage telemetry or analytics. Feedback is only shared if you explicitly trigger it.
+
+---
+
+## 🚀 Quick Start (Get running in 60s)
+
+Consume engineering standards in your project instantly.
+
+### 1. Run the CLI
+
+```bash
+npx agentcore@latest init
+```
+
+_The interactive wizard will detect your stack and setup your `.skillsrc`._
+
+### 2. Sync Standards
+
+```bash
+npx agentcore@latest sync
+```
+
+### 3. Automatic Activation
+
+Whenever you run `sync`, the CLI automatically updates `AGENTS.md` in your project root with a compressed index of your enabled skills.
+
+This `AGENTS.md` file serves as a **universal entry point** that helps all AI agents proactively understand when to trigger specific skills based on your project context.
+
+---
+
+## ⚙️ Configuration (`.skillsrc`)
+
+The `.skillsrc` file allows you to customize how skills are synced to your project.
+
+```yaml
+registry: https://github.com/HoangNguyen0403/agent-skills-standard
+agents: [cursor, copilot, kiro]
+skills:
+  flutter:
+    ref: flutter-v1.1.0
+    # 🚫 Exclude specific sub-skills from being synced
+    exclude: ['getx-navigation']
+    # ➕ Include specific skills (supports cross-category 'category/skill' or 'category/*' syntax)
+    include:
+      - 'bloc-state-management'
+      - 'react/hooks'
+      - 'common/*'
+    # 🔒 Protect local modifications from being overwritten
+    custom_overrides: ['bloc-state-management']
+  # 🤖 Optional: Sync workflows to .agent/workflows/
+  workflows: true
+```
+
+### Key Options
+
+- **`exclude`**: A list of skill IDs to skip during synchronization.
+- **`include`**: A list of skill IDs to fetch. Supports:
+  - **Relative Path**: `bloc-state-management` (from current category)
+  - **Absolute Path**: `react/hooks` (pull specific skill from another category)
+  - **Glob Path**: `common/*` (pull ALL skills from another category)
+- **`custom_overrides`**: A list of skill IDs that the CLI should **never** overwrite.
+- **`ref`**: Specify a specific version or tag for the skills.
+
+### Project-Specific Skills
+
+For project-specific rules that differ from or extend the standard registry skills, create local skills in your agent's skills directory (e.g., `.github/skills/project/` for Copilot). These local skills will not be overwritten during sync operations.
+
+Example:
+
+Create `.github/skills/project/your-project-standards/SKILL.md` with your custom rules.
+
+This approach ensures your project-specific standards are preserved while benefiting from upstream updates.
+
+---
+
+## ❓ Troubleshooting
+
+### Invalid .skillsrc
+
+If the CLI complains about configuration format:
+
+- Ensure `registry` is a valid URL.
+- Ensure `skills` is a map of categories to config objects.
+- Run `npx agentcore@latest init` to generate a fresh valid config.
+
+---
+
+## 🌍 Registry Ecosystem
+
+AgentCore is designed to be the universal language for engineering standards.
+
+### 🔹 Current Support (v1.6.3)
+
+| Category                   | Key Modules                                           | Version  | Skills | Avg. Footprint |
+| :------------------------- | :---------------------------------------------------- | :------- | :----- | :------------- |
+| **☕ Spring Boot**         | Architecture, Security, Data, Test, Microservices     | `v1.0.0` | 10     | ~339 tokens    |
+| **🌐 Common**              | SOLID, Security (SQLi/HTMLi), TDD, Anti-Patterns      | `v1.5.0` | 14     | ~494 tokens    |
+| **🌐 Quality Engineering** | Business Analysis, Jira, Zephyr, QA Automation        | `v1.0.0` | 4      | ~500 tokens    |
+| **💙 Flutter**             | Clean Arch, BLoC, Riverpod, Testing, GetX, Nav v1     | `v1.3.1` | 21     | ~422 tokens    |
+| **🎯 Dart**                | Idiomatic Patterns, Advanced Tooling, Build Runner    | `v1.0.4` | 3      | ~435 tokens    |
+| **☕ Java**                | Modern Syntax, Virtual Threads, Testing, Tooling      | `v1.0.0` | 5      | ~522 tokens    |
+| **🔷 TypeScript**          | Type Safety, Security, Best Practices, Tooling        | `v1.0.6` | 4      | ~627 tokens    |
+| **🟨 JavaScript**          | Modern ES2022+ Patterns, Async/Await, Functional      | `v1.0.0` | 5      | ~522 tokens    |
+| **⚛️ React**               | Hooks, State Management, Performance, Security        | `v1.0.2` | 8      | ~396 tokens    |
+| **📱 React Native**        | Arch, Perf, Navigation, Security, Deployment          | `v1.0.2` | 8      | ~396 tokens    |
+| **🦁 NestJS**              | Architecture, Microservices, Security, CQRS, Scalling | `v1.1.1` | 21     | ~476 tokens    |
+| **▲ Next.js**              | App Router (v15), Caching (v16), Bundling, Debug      | `v1.1.1` | 17     | ~423 tokens    |
+| **🐘 Laravel**             | Clean Arch, Eloquent, Security, Jobs, Redis, API      | `v1.0.0` | 10     | ~361 tokens    |
+| **🐹 Golang**              | Clean Architecture, API Design, Concurrency, Security | `v1.0.2` | 10     | ~351 tokens    |
+| **🐘 Kotlin**              | Idiomatic Patterns, Coroutines, Flow, Tooling         | `v1.0.1` | 4      | ~453 tokens    |
+| **🅰️ Angular**             | Standalone, Signals, Control Flow, SSR, Testing       | `v1.1.0` | 15     | ~276 tokens    |
+| **🤖 Android**             | Architecture, Compose, DI, Perf, Testing, WorkManager | `v1.0.2` | 22     | ~290 tokens    |
+| **🍎 Swift**               | Language, Memory, Concurrency, SwiftUI, Testing       | `v1.0.0` | 8      | ~354 tokens    |
+| **📱 iOS**                 | Arch, UI, Lifecycle, Security, Perf, Networking, DI   | `v1.1.0` | 15     | ~404 tokens    |
+
+> [!TIP]
+> **Quality Engineering (Opt-in)**: Advanced skills like `business-analysis` or `zephyr-test-generation` are in the **quality-engineering** category and are NOT synced by default to keep context lean. To use them, manually add the category to your `.skillsrc`:
+>
+> ```yaml
+> skills:
+>   quality-engineering: { ref: quality-engineering-v1.0.0 }
+> ```
+>
+> [!TIP]
+> **Enterprise Ready**: You can host your own **Private Skills Registry** on GitHub and point the CLI to it via the `registry` field in your `.skillsrc`.
+
+---
+
+## 📂 Standard Specification
+
+The standard follows a strict directory structure designed for **Token Economy**.
+
+```text
+skills/
+└── flutter/                    # Category
+    └── bloc-state-management/      # Skill
+        ├── SKILL.md                # Core Rules (High Density)
+        └── references/             # Heavy Examples (Loaded only on demand)
+```
+
+The CLI will sync this exact structure effectively to your agent configuration:
+
+```text
+.cursor/skills/
+└── flutter/
+    └── bloc-state-management/
+```
+
+### IDE Mapping
+
+| Agent           | Target Path         | Integration Method                     |
+| :-------------- | :------------------ | :------------------------------------- |
+| **Cursor**      | `.cursor/skills/`   | Automatic discovery via `.cursorrules` |
+| **Trae**        | `.trae/skills/`     | Automatic discovery                    |
+| **Claude Code** | `.claude/skills/`   | Referenced in `CLAUDE.md`              |
+| **Copilot**     | `.github/skills/`   | Automatic discovery                    |
+| **Kiro**        | `.kiro/skills/`     | Automatic discovery                    |
+| **OpenAI**      | `.codex/skills/`    | Automatic discovery                    |
+| **Antigravity** | `.agent/skills/`    | Automatic discovery                    |
+| **Gemini**      | `.gemini/skills/`   | Automatic discovery                    |
+| **Roo Code**    | `.roo/skills/`      | Automatic discovery                    |
+| **Windsurf**    | `.windsurf/skills/` | Automatic discovery                    |
+| **OpenCode**    | `.opencode/skills/` | Automatic discovery                    |
+
+---
+
+## 🏗 Contributing & Development
+
+Interested in adding standards for **NestJS, Golang, or React**? We follow a strict semantic versioning for every skill category.
+
+1. **Propose a Skill**: Open an issue with your draft [High-Density Content](skills/README.md).
+2. **Develop Locally**: Fork and add your category to `skills/`.
+3. **Submit PR**: Our CI/CD will validate the metadata integrity before merging.
+
+### Local Development Testing
+
+To test your changes locally before publishing to NPM:
+
+```bash
+# In your test project directory, point npx to your local CLI folder
+npx /path/to/agent-skills-standard/cli sync
+```
+
+This is the recommended way to verify that skill injections and discovery bridges (like `.cursorrules`) work correctly in a real project environment.
+
+---
+
+## 📄 License & Credits
+
+- **License**: MIT
+- **Original author**: [Hoang Nguyen](https://github.com/HoangNguyen0403)
+- **Current maintainer**: [Van Toan](https://github.com/MacOsEsy)
+
+---

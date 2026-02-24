@@ -1,0 +1,49 @@
+{
+  "name": "agentcore-root",
+  "version": "1.6.6",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MacOsEsy/agent-skills-standard.git"
+  },
+  "author": "Van Toan",
+  "packageManager": "pnpm@10.0.0",
+  "pnpm": {
+    "overrides": {
+      "lodash": "^4.17.23",
+      "qs": "^6.15.0"
+    }
+  },
+  "scripts": {
+    "build": "pnpm --filter ./cli build",
+    "dev": "pnpm --filter ./cli dev",
+    "lint": "pnpm -r lint",
+    "format": "pnpm -r format",
+    "format:check": "pnpm -r format:check",
+    "lint:check": "pnpm -r lint:check",
+    "validate": "pnpm --filter ./cli validate",
+    "validate:all": "pnpm --filter ./cli validate:all && pnpm audit:skills",
+    "test": "pnpm --filter ./cli test",
+    "test:coverage": "pnpm --filter ./cli test:coverage",
+    "release-skill": "pnpm --filter ./cli release-skill",
+    "release-cli": "pnpm --filter ./cli release-cli",
+    "server:release": "pnpm --filter ./cli release-server",
+    "server:dev": "pnpm --filter ./server start:dev",
+    "server:build": "pnpm --filter ./server build",
+    "server:start": "pnpm --filter ./server start:prod",
+    "calculate-tokens": "pnpm --filter ./cli calculate-tokens",
+    "generate-indices": "pnpm --filter ./cli generate-indices",
+    "audit:skills": "pnpm --filter ./cli audit:skills",
+    "docs:scan": "pnpm --filter ./cli docs:scan src ../server/src",
+    "test:e2e": "pnpm --filter ./cli test:e2e",
+    "prepare": "husky"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.30",
+    "husky": "^9.1.7",
+    "typescript": "^5.9.3"
+  }
+}
