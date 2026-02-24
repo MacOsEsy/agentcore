@@ -1,6 +1,6 @@
 {
   "name": "agentcore",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "AgentCore CLI to manage and sync AI agent skills across tools like Cursor, Claude, Copilot, Windsurf, and more.",
   "main": "dist/index.js",
   "bin": {
